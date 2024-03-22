@@ -1,0 +1,31 @@
+---
+import { Image } from "astro:assets";
+import { SectionTitle } from "../components/SectionTitle";
+import { services } from "../data";
+import serviceImage from "../display.png";
+---
+
+<div class="grid grid-cols-1 md:grid-cols-2 gap-5 p-6 md:px-12 xl:px-16">
+  <div>
+    <Image src={serviceImage} alt={""} class="" />
+  </div>
+  <div class="flex flex-col gap-y-8">
+    <div>
+      <SectionTitle>Our Delivery Services</SectionTitle>
+      <p>
+        We offer a variety of delivery services to meet your needs. From express
+        delivery to same-day delivery, we've got you covered.
+      </p>
+    </div>
+    <div class="grid grid-cols-2 gap-y-8">
+      {
+        services.map(({ title, description }) => (
+          <div class="grid grid-cols-1 gap-y-4">
+            <h3 class="font-semibold text-brand-primary text-xl h-fit">{title}</h3>
+            <p>{description}</p>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</div>
