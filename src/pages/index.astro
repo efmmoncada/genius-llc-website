@@ -5,13 +5,14 @@ import Hero from "../components/Hero.astro";
 import Services from "../components/Services.astro";
 import Testimonials from "../components/Testimonials.astro";
 import Layout from "../layouts/Layout.astro";
-import logo from "../logo.png";
+import logo from "../logoCropped.png";
+import { Contact } from '../components/Contact';
 ---
 
 <Layout title="Genius Express Delivery">
   <Nav>
     <Image
-      class="object-fill object-center size-96"
+      class="object-center inline object-scale-down w-52 bg-transparent"
       src={logo}
       alt={"genius express delivery logo"}
     />
@@ -20,4 +21,5 @@ import logo from "../logo.png";
   <Hero />
   <Services />
   <Testimonials />
+  <Contact client:only />
 </Layout>
