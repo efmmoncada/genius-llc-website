@@ -7,19 +7,40 @@ import {
 
 export function Nav({ children }: { children: React.ReactNode }) {
   return (
-    <Navbar>
+    <Navbar
+      classNames={{
+        wrapper: "justify-end",
+        brand: "justify-self-start",
+      }}
+      maxWidth="full"
+    >
       <NavbarContent justify="start">
         <NavbarBrand>
-          {/* {children} */}
-          <h1>Genius Express Delivery</h1>
+          <a href="/">{children}</a>
         </NavbarBrand>
       </NavbarContent>
-      {/* <NavbarContent justify="end">
-        <NavbarItem>Home</NavbarItem>
-        <NavbarItem>Services</NavbarItem>
-        <NavbarItem>Testimonials</NavbarItem>
-        <NavbarItem>Contact</NavbarItem>
-      </NavbarContent> */}
+      <NavbarContent justify="end">
+        <NavbarItem>
+          <a href="/" className="text-lg">
+            Home
+          </a>
+        </NavbarItem>
+        <NavbarItem>
+          <a href="#services" className="text-lg">
+            Services
+          </a>
+        </NavbarItem>
+        <NavbarItem>
+          <a href="#testimonials" className="text-lg">
+            Testimonials
+          </a>
+        </NavbarItem>
+        <NavbarItem>
+          <a href="#contact" className="text-lg">
+            Contact
+          </a>
+        </NavbarItem>
+      </NavbarContent>
     </Navbar>
   );
 }
