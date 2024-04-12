@@ -7,10 +7,11 @@ import Testimonials from "../components/Testimonials.astro";
 import Layout from "../layouts/Layout.astro";
 import logo from "../logoCropped.png";
 import { Contact } from '../components/Contact';
+import { Footer } from '../components/Footer';
 ---
 
 <Layout title="Genius Express Delivery">
-  <Nav>
+  <Nav client:only>
     <Image
       class="object-center inline object-scale-down w-52 bg-transparent"
       src={logo}
@@ -22,4 +23,5 @@ import { Contact } from '../components/Contact';
   <Services />
   <Testimonials />
   <Contact client:only />
+  <Footer />
 </Layout>
