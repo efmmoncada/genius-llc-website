@@ -9,10 +9,29 @@ export default {
   theme: {
     extend: {
       colors: {
-        "brand-primary": "#0C2869"
-      }
+        "brand-primary": "#0C2869",
+      },
     },
   },
   darkMode: "class",
-  plugins: [nextui()],
+  plugins: [
+    nextui({
+      themes: {
+        light: {
+          colors: {
+            primary: {
+              DEFAULT: "#0C2869",
+            },
+          },
+        },
+        dark: {
+          colors: {
+            primary: {
+              DEFAULT: "#0C2869",
+            },
+          },
+        },
+      },
+    }),
+  ],
 };
