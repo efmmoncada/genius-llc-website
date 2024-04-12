@@ -11,7 +11,7 @@ import { Footer } from '../components/Footer';
 ---
 
 <Layout title="Genius Express Delivery">
-  <Nav client:only>
+  <Nav client:load>
     <Image
       class="object-center inline object-scale-down w-52 bg-transparent"
       src={logo}
@@ -22,6 +22,6 @@ import { Footer } from '../components/Footer';
   <Hero />
   <Services />
   <Testimonials />
-  <Contact client:only />
+  <Contact client:only="react"={{rootMargin: "200px"}} />
   <Footer />
 </Layout>
