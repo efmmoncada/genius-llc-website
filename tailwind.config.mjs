@@ -10,6 +10,7 @@ export default {
     extend: {
       colors: {
         "brand-primary": "#0C2869",
+        "brand-secondary": "#A2D9F2",
       },
     },
   },
