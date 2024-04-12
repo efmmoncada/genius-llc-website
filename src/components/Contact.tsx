@@ -70,7 +70,7 @@ export function Contact({ children }: Props) {
   return (
     <div
       id="contact"
-      className="scroll-mt-28 px-4 py-10 sm:px-0 flex flex-col gap-y-8 w-5/6"
+      className="scroll-mt-28 px-4 py-10 sm:px-0 flex flex-col w-5/6"
     >
       <SectionTitle>Contact Us</SectionTitle>
 
@@ -83,7 +83,7 @@ export function Contact({ children }: Props) {
           <form
             ref={form}
             onSubmit={sendEmail}
-            className="grid grid-cols-1 lg:grid-cols-2 gap-4"
+            className="grid grid-cols-1 lg:grid-cols-2 gap-4 w-full justify-items-center"
           >
             <Input
               name="name"
@@ -166,7 +166,7 @@ function EmailSendSuccess() {
 
 function ContactInfo() {
   return (
-    <div className='flex gap-x-5'>
+    <div className='flex gap-x-5 w-full px-3 justify-center'>
       <div>
         <Avatar src="https://fakeimg.pl/400x400" size="lg" />
       </div>
