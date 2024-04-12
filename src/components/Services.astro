@@ -2,14 +2,14 @@
 import { Image } from "astro:assets";
 import { SectionTitle } from "../components/SectionTitle";
 import { services } from "../data";
-import serviceImage from "../display.png";
+import serviceImage from "../truck.jpg";
 ---
 
-<div id="services" class="grid grid-cols-1 gap-5 p-8 xl:px-12 xl:py-20 lg:grid-cols-2">
+<div id="services" class="grid grid-cols-1 gap-5 p-8 xl:py-20 lg:grid-cols-2">
   <div class="hidden lg:block">
     <Image src={serviceImage} alt={""} class="" />
   </div>
-  <div>
+  <div class="grid gap-5">
     <SectionTitle>Our Delivery Services</SectionTitle>
     <p>
       We offer a variety of delivery services to meet your needs. From express
