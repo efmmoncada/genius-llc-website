@@ -1,10 +1,14 @@
-import { useMemo, useRef, useState, type MouseEvent, type FormEvent } from 'react';
-import { SectionTitle } from './SectionTitle';
-import { Button, Input, Textarea, Tooltip } from '@nextui-org/react';
+import {
+  useMemo,
+  useRef,
+  useState,
+  type MouseEvent,
+  type FormEvent,
+} from "react";
+import { SectionTitle } from "./SectionTitle";
+import { Avatar, Button, Input, Textarea, Tooltip } from "@nextui-org/react";
 import emailjs from "@emailjs/browser";
 import { FaCircleCheck } from "react-icons/fa6";
-
-
 
 type Props = {
   children?: React.ReactNode;
@@ -64,74 +68,86 @@ export function Contact({ children }: Props) {
   }
 
   return (
-    <div id="contact" className="scroll-mt-28 px-4 py-10 sm:px-0">
+    <div
+      id="contact"
+      className="scroll-mt-28 px-4 py-10 sm:px-0 flex flex-col gap-y-8 w-5/6"
+    >
       <SectionTitle>Contact Us</SectionTitle>
-      {submitted ? (
-        <EmailSendSuccess />
-      ) : (
-        <form
-          ref={form}
-          onSubmit={sendEmail}
-          className="flex flex-col items-center gap-4"
-        >
-          <Input
-            name="name"
-            type="text"
-            label="Your Name"
-            variant="bordered"
-            value={name}
-            onValueChange={setName}
-            required
-            isRequired
-            // errorMessage="Please enter a valid email"
-            className="max-w-sm"
-          />
-          <Input
-            name="email"
-            type="email"
-            label="Your Email"
-            autoComplete="email"
-            variant="bordered"
-            required
-            isRequired
-            isInvalid={isEmailInvalid}
-            errorMessage={isEmailInvalid && "Please enter a valid email"}
-            validationBehavior="native"
-            onValueChange={setEmail}
-            className="max-w-sm"
-          />
-          <Input
-            name="phoneNumber"
-            type="tel"
-            autoComplete="tel"
-            variant="bordered"
-            label="Phone Number"
-            className="max-w-sm"
-          />
-          <Textarea
-            name="description"
-            variant="bordered"
-            label="Your Message"
-            rows={8}
-            className="max-w-sm"
-          />
-          <div className="flex flex-row gap-4">
-            <Button onClick={handleClear}>Clear</Button>
-            <Tooltip
-              isDisabled={name !== "" && email !== ""}
-              content="Please fill out all required fields"
-            >
-              <Button
-                isDisabled={name === "" || email === ""}
-                color="primary"
-                type="submit"
+
+      <div className="flex flex-col lg:flex-row gap-y-8 justify-around items-center lg:items-start w-full py-10">
+        <ContactInfo />
+
+        {submitted ? (
+          <EmailSendSuccess />
+        ) : (
+          <form
+            ref={form}
+            onSubmit={sendEmail}
+            className="grid grid-cols-1 lg:grid-cols-2 gap-4"
+          >
+            <Input
+              name="name"
+              type="text"
+              label="Your Name"
+              variant="bordered"
+              value={name}
+              onValueChange={setName}
+              required
+              isRequired
+              // errorMessage="Please enter a valid email"
+              className="max-w-sm"
+              classNames={{ inputWrapper: "bg-white" }}
+            />
+            <Input
+              name="email"
+              type="email"
+              label="Your Email"
+              autoComplete="email"
+              variant="bordered"
+              required
+              isRequired
+              isInvalid={isEmailInvalid}
+              errorMessage={isEmailInvalid && "Please enter a valid email"}
+              validationBehavior="native"
+              onValueChange={setEmail}
+              className="max-w-sm"
+              classNames={{ inputWrapper: "bg-white" }}
+            />
+            <Input
+              name="phoneNumber"
+              type="tel"
+              autoComplete="tel"
+              variant="bordered"
+              label="Phone Number"
+              className="max-w-sm"
+              classNames={{ inputWrapper: "bg-white" }}
+            />
+            <Textarea
+              name="description"
+              variant="bordered"
+              label="Your Message"
+              rows={8}
+              className="max-w-sm"
+              classNames={{ inputWrapper: "bg-white" }}
+            />
+            <div className="flex flex-row gap-4 lg:col-span-2 justify-center">
+              <Button onClick={handleClear}>Clear</Button>
+              <Tooltip
+                isDisabled={name !== "" && email !== ""}
+                content="Please fill out all required fields"
               >
-                Submit
-              </Button>
-            </Tooltip>
-          </div>
-        </form>
-      )}
+                <Button
+                  isDisabled={name === "" || email === ""}
+                  color="primary"
+                  type="submit"
+                >
+                  Submit
+                </Button>
+              </Tooltip>
+            </div>
+          </form>
+        )}
+      </div>
     </div>
   );
 }
@@ -144,6 +160,21 @@ function EmailSendSuccess() {
         Thank you, your message has been sent successfully, we will be reaching
         out soon!
       </h4>
+    </div>
+  );
+}
+
+function ContactInfo() {
+  return (
+    <div className='flex gap-x-5'>
+      <div>
+        <Avatar src="https://fakeimg.pl/400x400" size="lg" />
+      </div>
+      <div className='flex flex-col'>
+        <h2 className='font-bold'>Ravin Singh</h2>
+        <a href="tel:5038884913">503-888-4913</a>
+        <a href="mailto:geniusexpress23@yahoo.com">geniusexpress23@yahoo.com</a>
+      </div>
     </div>
   );
 }
