@@ -8,10 +8,14 @@ type Props = {
 
 export function TestimonialCard({ children, company, testimonialText }: Props) {
   return (
-    <Card>
+    <Card classNames={{
+      body: "p-5"
+    }}>
       <CardHeader className="gap-x-4">
         {/* {children} */}
-        <Avatar src="https://fakeimg.pl/400x400" size='md'/>
+        <Avatar classNames={{
+          img: "opacity-100"
+        }} src="/vinesh_lal.jpg" size='lg'/>
         <h4 className="font-semibold text-lg">{company}</h4>
       </CardHeader>
       <Divider />
