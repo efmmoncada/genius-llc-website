@@ -166,10 +166,7 @@ function EmailSendSuccess() {
 
 function ContactInfo() {
   return (
-    <div className='flex gap-x-5 w-full px-3 justify-center'>
-      <div>
-        <Avatar src="https://fakeimg.pl/400x400" size="lg" />
-      </div>
+    <div className='flex gap-x-5 w-full h-full px-3 text-lg lg:text-xl justify-center'>
       <div className='flex flex-col'>
         <h2 className='font-bold'>Ravin Singh</h2>
         <a href="tel:5038884913">503-888-4913</a>

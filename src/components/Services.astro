@@ -2,27 +2,33 @@
 import { Image } from "astro:assets";
 import { SectionTitle } from "../components/SectionTitle";
 import { services } from "../data";
-import serviceImage from "../truck.jpg";
+import { ImageSlideshow } from "../components/ImageSlideshow";
 ---
 
 <div id="services" class="grid grid-cols-1 gap-5 p-8 xl:py-20 lg:grid-cols-2">
   <div class="hidden lg:block">
-    <Image src={serviceImage} alt={""} class="" />
+    <ImageSlideshow
+      client:only="react"
+      images={["/service1.jpg", "/service2.jpg", "/service4.jpg"]}
+    />
   </div>
   <div class="grid gap-5">
     <SectionTitle>Our Delivery Services</SectionTitle>
-    <p>
+    <p class="lg:text-2xl">
       We offer a variety of delivery services to meet your needs. From express
       delivery to same-day delivery, we've got you covered.
     </p>
     <div class="lg:hidden">
-      <Image src={serviceImage} alt={""} class="" />
+      <ImageSlideshow
+        client:only="react"
+        images={["/service1.jpg", "/service2.jpg", "/service4.jpg"]}
+      />
     </div>
     <div class="grid grid-cols-2 gap-10">
       {
         services.map(({ title, description }) => (
-          <div class="flex flex-col gap-3">
-            <h3 class="font-semibold text-brand-primary text-xl h-fit">
+          <div class="flex flex-col gap-3 text-lg lg:text-xl">
+            <h3 class="font-semibold text-brand-primary h-fit text-xl lg:text-2xl">
               {title}
             </h3>
             <p>{description}</p>
