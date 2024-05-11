@@ -13,7 +13,7 @@ import { SectionTitle } from './SectionTitle';
 >
   {
     testimonials.map(({ logoSrc, company, quote }) => (
-      <TestimonialCard testimonialText={quote} company={company}>
+      <TestimonialCard testimonialText={quote} company={company} logoSrc={logoSrc}>
         <Image
           class="size-14 rounded-full"
           src={logoSrc}

@@ -4,9 +4,10 @@ type Props = {
   children: React.ReactNode;
   company: string;
   testimonialText: string;
+  logoSrc: string;
 };
 
-export function TestimonialCard({ children, company, testimonialText }: Props) {
+export function TestimonialCard({ children, company, testimonialText, logoSrc }: Props) {
   return (
     <Card classNames={{
       body: "p-5"
@@ -15,7 +16,7 @@ export function TestimonialCard({ children, company, testimonialText }: Props) {
         {/* {children} */}
         <Avatar classNames={{
           img: "opacity-100"
-        }} src="/vinesh_lal.jpg" size='lg'/>
+        }} src={logoSrc} size='lg'/>
         <h4 className="font-semibold text-lg">{company}</h4>
       </CardHeader>
       <Divider />
